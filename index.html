@@ -604,16 +604,19 @@
     </div>
 
     <!-- Banner section -->
-    <section id="pool-banner-section"
-      class="relative bg-[#73E2DF] bg-cover bg-center w-full pt-20 md:pt-24 px-4 md:px-8 lg:px-12 xl:px-19.25 overflow-hidden flex flex-col justify-between"
+    <section
+      id="pool-banner-section"
+      class="relative bg-[#73E2DF] min-h-screen bg-cover bg-center w-full pt-20 md:pt-24 px-4 md:px-8 lg:px-12 xl:px-19.25 overflow-hidden flex flex-col justify-between"
       style="background-image: url(assets/images/pool-banner-main-bg.webp)"
     >
-      <div class="max-w-475 mx-auto w-full pr-0">
+      <div
+        class="max-w-475 mx-auto w-full pr-0 flex-1 flex flex-col justify-between"
+      >
         <!-- Hero Grid Layout -->
-        <div class="grid grid-cols-1 xl:grid-cols-12 items-stretch">
+        <div class="grid grid-cols-1 xl:grid-cols-12 flex-1 relative">
           <!-- Left Side: Title & Desc on top, Price & Checklist at the very bottom end -->
           <div
-            class="xl:col-span-6 flex flex-col justify-between pb-6 md:pb-8 lg:pb-10 xl:pb-12"
+            class="xl:col-span-6 flex flex-col pb-6 md:pb-8 lg:pb-10 xl:pb-12 2xl:pb-16 z-10"
           >
             <!-- Top Group: Title and Description -->
             <div class="mb-6 md:mb-8 w-full xl:max-w-167">
@@ -702,7 +705,7 @@
                     alt="check"
                     class="w-4 h-4 md:w-5 md:h-5 xl:w-6 xl:h-6 object-contain mt-0.5 sm:mt-0"
                   />
-                  <span>Trusted by independent pet care businesses</span>
+                  <span>Trusted by independent pool care businesses</span>
                 </li>
                 <li
                   class="flex gap-2 lg:gap-3 stack-sans-text text-[#00304B] text-xs md:text-sm lg:text-base font-normal leading-[150%]"
@@ -712,7 +715,7 @@
                     alt="check"
                     class="w-4 h-4 md:w-5 md:h-5 xl:w-6 xl:h-6 object-contain mt-0.5 sm:mt-0"
                   />
-                  <span> 14-day delivery</span>
+                  <span> 14-day delivery</span>
                 </li>
                 <li
                   class="flex gap-2 lg:gap-3 stack-sans-text text-[#00304B] text-xs md:text-sm lg:text-base font-normal leading-[150%]"
@@ -722,7 +725,7 @@
                     alt="check"
                     class="w-4 h-4 md:w-5 md:h-5 xl:w-6 xl:h-6 object-contain mt-0.5 sm:mt-0"
                   />
-                  <span> You own the site, content, and domain</span>
+                  <span> You own the site, content, and domain</span>
                 </li>
                 <li
                   class="flex gap-2 lg:gap-3 stack-sans-text text-[#00304B] text-xs md:text-sm lg:text-base font-normal leading-[150%]"
@@ -732,7 +735,7 @@
                     alt="check"
                     class="w-4 h-4 md:w-5 md:h-5 xl:w-6 xl:h-6 object-contain mt-0.5 sm:mt-0"
                   />
-                  <span> No retainers</span>
+                  <span> No retainers</span>
                 </li>
               </ul>
             </div>
@@ -740,13 +743,15 @@
 
           <!-- Right Side: Single Image extended to the very right and bottom edge -->
           <div
-            class="xl:col-span-6 flex justify-end items-end relative self-end pr-0 -mr-6 sm:-mr-6 md:-mr-12 xl:-mr-19.25"
+            class="xl:col-span-6 flex justify-end items-end relative self-end pr-0 -mr-4 md:-mr-8 lg:-mr-12 xl:-mr-19.25 xl:absolute xl:bottom-0 xl:right-0 h-full pointer-events-none"
           >
-            <div class="pool-hero-mockup relative w-[80%] lg:w-[60%] xl:w-[80%]">
+            <div
+              class="pool-hero-mockup relative w-full h-full lg:w-[80%] xl:w-full xl:h-full flex items-end"
+            >
               <img
                 src="assets/images/pool-website-mockup-showcase.webp"
                 alt="Pool Website Design Showcase"
-                class="w-full h-auto object-contain"
+                class="w-full h-auto max-h-full object-contain object-bottom pointer-events-auto"
               />
             </div>
           </div>
@@ -1997,7 +2002,7 @@
     </section>
 
     <!-- Website Design for Pool Builders, Service, & Maintenance Companies -->
-        <section
+    <section
       class="bg-linear-to-b from-[#73E2DF] to-[#5EAFDB] py-12 md:py-16 lg:py-20 xl:py-24"
     >
       <div class="container">
@@ -2012,12 +2017,16 @@
               <h2
                 class="pool-heading-reveal anton text-[#00304B] text-2xl md:text-[40px] lg:text-[48px] xl:text-[56px] font-normal leading-[120%] uppercase mb-3 lg:mb-4 xl:mb-6"
               >
-                Website Design for Pool Builders, Service, & Maintenance Companies
+                Website Design for Pool Builders, Service, & Maintenance
+                Companies
               </h2>
               <p
                 class="stack-sans-text text-[#00304B] text-xs md:text-sm lg:text-base font-normal leading-[150%]"
               >
-                However you found this page, whether you searched pool website design, swimming pool website design, or website design for pool builders, the destination is the same: a site built around how this trade actually wins both kinds of customer.
+                However you found this page, whether you searched pool website
+                design, swimming pool website design, or website design for pool
+                builders, the destination is the same: a site built around how
+                this trade actually wins both kinds of customer.
               </p>
 
               <!-- Primary button -->
@@ -2089,14 +2098,16 @@
                 <h3
                   class="anton text-[#00304B] text-xl md:text-2xl lg:text-[26px] xl:text-[32px] font-normal leading-[120%] uppercase mb-2 md:mb-3"
                 >
-                 Pool builders
+                  Pool builders
                 </h3>
 
                 <!-- Description -->
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                 Custom builds, renovations, and outdoor living projects need a strong portfolio. We showcase your work, process, and expertise to build trust and attract high-value clients.
+                  Custom builds, renovations, and outdoor living projects need a
+                  strong portfolio. We showcase your work, process, and
+                  expertise to build trust and attract high-value clients.
                 </p>
               </div>
             </div>
@@ -2130,7 +2141,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  Route-based businesses rely on recurring plans. We make services clear, signups simple, and repairs easy to request, helping your website generate more customers.
+                  Route-based businesses rely on recurring plans. We make
+                  services clear, signups simple, and repairs easy to request,
+                  helping your website generate more customers.
                 </p>
               </div>
             </div>
@@ -2157,7 +2170,7 @@
                 <h3
                   class="anton text-[#00304B] text-xl md:text-2xl lg:text-[26px] xl:text-[32px] font-normal leading-[120%] uppercase mb-2 md:mb-3"
                 >
-                 Companies that do both
+                  Companies that do both
                 </h3>
 
                 <!-- Description -->
@@ -2194,14 +2207,16 @@
                 <h3
                   class="anton text-[#00304B] text-xl md:text-2xl lg:text-[26px] xl:text-[32px] font-normal leading-[120%] uppercase mb-2 md:mb-3"
                 >
-                 Renovation & repair specialists
+                  Renovation & repair specialists
                 </h3>
 
                 <!-- Description -->
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                 Resurfacing, equipment upgrades, and leak detection benefit from focused pages that capture exactly the pool owners searching for those problems.
+                  Resurfacing, equipment upgrades, and leak detection benefit
+                  from focused pages that capture exactly the pool owners
+                  searching for those problems.
                 </p>
               </div>
             </div>
@@ -2263,7 +2278,7 @@
           <h2
             class="pool-heading-reveal anton text-[#00304B] text-2xl md:text-[40px] lg:text-[48px] xl:text-[56px] font-normal leading-[120%] uppercase"
           >
-           How Your Pool Company Website Comes Together Step by Step
+            How Your Pool Company Website Comes Together Step by Step
           </h2>
         </div>
 
@@ -2283,10 +2298,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-discovery.svg" alt="Discover" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-discovery.svg"
+                  alt="Discover"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2297,7 +2314,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  We learn about your services, projects, target customers, and coverage area. Before design starts, we confirm scope, content needs, photos, and timeline.
+                  We learn about your services, projects, target customers, and
+                  coverage area. Before design starts, we confirm scope, content
+                  needs, photos, and timeline.
                 </p>
               </div>
             </div>
@@ -2305,10 +2324,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-brand-design.svg" alt="Brand & design" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-brand-design.svg"
+                  alt="Brand & design"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2319,7 +2340,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  We start with your logo and brand direction, then create a website design around your best projects, services, and goals with feedback-driven revisions.
+                  We start with your logo and brand direction, then create a
+                  website design around your best projects, services, and goals
+                  with feedback-driven revisions.
                 </p>
               </div>
             </div>
@@ -2327,10 +2350,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-build.svg" alt="Build" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-build.svg"
+                  alt="Build"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2341,7 +2366,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  The approved design becomes a fast, mobile-first website with optimized galleries, clear customer paths, and a clean search-friendly structure from launch.
+                  The approved design becomes a fast, mobile-first website with
+                  optimized galleries, clear customer paths, and a clean
+                  search-friendly structure from launch.
                 </p>
               </div>
             </div>
@@ -2349,10 +2376,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-launch-support.svg" alt="Launch & support" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-launch-support.svg"
+                  alt="Launch & support"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2363,7 +2392,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                 We handle the launch and remain available for a full month of included support: adjustments, gallery updates, and guidance while you settle in.
+                  We handle the launch and remain available for a full month of
+                  included support: adjustments, gallery updates, and guidance
+                  while you settle in.
                 </p>
               </div>
             </div>
@@ -2371,16 +2402,18 @@
 
           <!-- mobile view -->
           <div
-            class="pool-timeline-card-wrap grid grid-cols-1 xl:hidden  w-full [&>div]:border-b [&>div]:border-[#73E2DF] [&>div]:py-4 [&>div:first-child]:pt-0 [&>div:last-child]:border-b-0 [&>div:last-child]:pb-0"
+            class="pool-timeline-card-wrap grid grid-cols-1 xl:hidden w-full [&>div]:border-b [&>div]:border-[#73E2DF] [&>div]:py-4 [&>div:first-child]:pt-0 [&>div:last-child]:border-b-0 [&>div:last-child]:pb-0"
           >
             <!-- Item -->
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-discovery.svg" alt="Discover" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-discovery.svg"
+                  alt="Discover"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2391,7 +2424,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  We learn about your services, projects, target customers, and coverage area. Before design starts, we confirm scope, content needs, photos, and timeline.
+                  We learn about your services, projects, target customers, and
+                  coverage area. Before design starts, we confirm scope, content
+                  needs, photos, and timeline.
                 </p>
               </div>
             </div>
@@ -2400,10 +2435,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-brand-design.svg" alt="Brand & design" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-brand-design.svg"
+                  alt="Brand & design"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2414,7 +2451,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  We start with your logo and brand direction, then create a website design around your best projects, services, and goals with feedback-driven revisions.
+                  We start with your logo and brand direction, then create a
+                  website design around your best projects, services, and goals
+                  with feedback-driven revisions.
                 </p>
               </div>
             </div>
@@ -2422,10 +2461,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-build.svg" alt="Build" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-build.svg"
+                  alt="Build"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2436,7 +2477,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                  The approved design becomes a fast, mobile-first website with optimized galleries, clear customer paths, and a clean search-friendly structure from launch.
+                  The approved design becomes a fast, mobile-first website with
+                  optimized galleries, clear customer paths, and a clean
+                  search-friendly structure from launch.
                 </p>
               </div>
             </div>
@@ -2445,10 +2488,12 @@
             <div
               class="pool-timeline-card flex flex-col items-center text-center px-4"
             >
-              <div
-                class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6"
-              >
-                <img src="assets/images/pool-timeline-launch-support.svg" alt="Launch & support" class="w-full h-full object-contain">
+              <div class="w-12 h-12 lg:w-16 lg:h-16 mb-2.5 md:mb-3 xl:mb-6">
+                <img
+                  src="assets/images/pool-timeline-launch-support.svg"
+                  alt="Launch & support"
+                  class="w-full h-full object-contain"
+                />
               </div>
               <div class="flex flex-col gap-2.5 sm:gap-3">
                 <h3
@@ -2459,7 +2504,9 @@
                 <p
                   class="stack-sans-text text-[#4A697B] text-xs md:text-sm xl:text-base font-normal leading-[150%]"
                 >
-                 We handle the launch and remain available for a full month of included support: adjustments, gallery updates, and guidance while you settle in.
+                  We handle the launch and remain available for a full month of
+                  included support: adjustments, gallery updates, and guidance
+                  while you settle in.
                 </p>
               </div>
             </div>
