@@ -239,42 +239,37 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", updateNavbar);
 });
 
-
 // Pool timeline card
 document.addEventListener("DOMContentLoaded", () => {
-  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+  const cards = document.querySelectorAll(".pool-timeline-card");
+  const isDesktop = window.matchMedia("(min-width: 1280px)"); // Tailwind xl
 
-  gsap.registerPlugin(ScrollTrigger);
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-  const sections = gsap.utils.toArray(".pool-timeline-card-wrap");
+        const card = entry.target;
 
-  sections.forEach((section) => {
-    const cards = section.querySelectorAll(".pool-timeline-card");
-
-    gsap.fromTo(
-      cards,
-      {
-        y: 50,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 85%",
-          toggleActions: "play none none none",
-          once: true
+        // Stagger only on desktop, where the 4 cards sit in one row
+        if (isDesktop.matches) {
+          const index = [...card.parentElement.children].indexOf(card);
+          card.style.setProperty("--delay", `${index * 0.25}s`);
+        } else {
+          card.style.setProperty("--delay", "0s");
         }
-      }
-    );
-  });
+
+        card.classList.add("is-visible");
+        obs.unobserve(card);
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -60px 0px" },
+  );
+
+  cards.forEach((card) => observer.observe(card));
 });
 
-// 
+//
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -308,7 +303,9 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(checkItems, { autoAlpha: 0, x: -24 });
     gsap.set(checkIcons, { scale: 0, rotate: -45 });
     gsap.set(mockup, {
-      autoAlpha: 0, x: 140, y: 80,
+      autoAlpha: 0,
+      x: 140,
+      y: 80,
       transformOrigin: "bottom right",
     });
 
@@ -324,18 +321,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Title: slides in from the left, fades in, blur clears
-    tl.to(title, {
-      autoAlpha: 1,
-      x: 0,
-      filter: "blur(0px)",
-      duration: 1.8,
-      ease: "expo.out",
-      onComplete: () => gsap.set(title, { clearProps: "filter,transform" }),
-    }, 0.1);
+    tl.to(
+      title,
+      {
+        autoAlpha: 1,
+        x: 0,
+        filter: "blur(0px)",
+        duration: 1.8,
+        ease: "expo.out",
+        onComplete: () => gsap.set(title, { clearProps: "filter,transform" }),
+      },
+      0.1,
+    );
 
     // Description + CTA
-    tl.to(desc, { autoAlpha: 1, y: 0, duration: 1.1, ease: "power2.out" }, "-=1.1")
-      .to(cta, { autoAlpha: 1, y: 0, duration: 1, ease: "back.out(1.2)" }, "-=0.7");
+    tl.to(
+      desc,
+      { autoAlpha: 1, y: 0, duration: 1.1, ease: "power2.out" },
+      "-=1.1",
+    ).to(
+      cta,
+      { autoAlpha: 1, y: 0, duration: 1, ease: "back.out(1.2)" },
+      "-=0.7",
+    );
 
     // Price box
     tl.to(priceHead, { autoAlpha: 1, y: 0, duration: 0.9 }, "-=0.6")
@@ -343,25 +351,42 @@ document.addEventListener("DOMContentLoaded", () => {
       .to(divider, { scaleX: 1, duration: 1, ease: "power2.inOut" }, "-=0.6");
 
     // Checklist
-    tl.to(checkItems, { autoAlpha: 1, x: 0, duration: 0.9, stagger: 0.15 }, "-=0.5")
-      .to(checkIcons, {
-        scale: 1, rotate: 0, duration: 0.8,
-        ease: "back.out(1.7)", stagger: 0.15,
-      }, "<0.1");
+    tl.to(
+      checkItems,
+      { autoAlpha: 1, x: 0, duration: 0.9, stagger: 0.15 },
+      "-=0.5",
+    ).to(
+      checkIcons,
+      {
+        scale: 1,
+        rotate: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        stagger: 0.15,
+      },
+      "<0.1",
+    );
 
     // Mockup entrance: lands slightly past the edges so no gap shows
-    tl.to(mockup, {
-      autoAlpha: 1, x: 8, y: 12,
-      duration: 2, ease: "power3.out",
-    }, 0.3);
+    tl.to(
+      mockup,
+      {
+        autoAlpha: 1,
+        x: 8,
+        y: 12,
+        duration: 2,
+        ease: "power3.out",
+      },
+      0.3,
+    );
 
     // Continuous slow wave
     tl.add(() => {
       wave = gsap.to(mockup, {
-        rotation: 3,      // tilt amount (was 1)
-        y: 40,            // vertical sway (was 18)
-        x: 16,            // optional side drift (was 8)
-        duration: 4,      // seconds per swing (was 5)
+        rotation: 3, // tilt amount (was 1)
+        y: 40, // vertical sway (was 18)
+        x: 16, // optional side drift (was 8)
+        duration: 4, // seconds per swing (was 5)
         ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
@@ -377,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 
+//
 (function () {
   "use strict";
 
@@ -388,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const SELECTOR = ".pool-heading-reveal";
   const PREFIX = "phr"; // namespace for generated classes
-  const BLUR = 4;       // px, set to 3 to match the hero title
+  const BLUR = 4; // px, set to 3 to match the hero title
 
   gsap.registerPlugin(ScrollTrigger); // safe to call more than once
 
@@ -443,7 +468,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // 1) wrap every word to measure which line it sits on
       el.innerHTML = label
         .split(" ")
-        .map((w) => `<span class="${PREFIX}-w" style="display:inline-block">${w}</span>`)
+        .map(
+          (w) =>
+            `<span class="${PREFIX}-w" style="display:inline-block">${w}</span>`,
+        )
         .join(" ");
 
       const words = [...el.querySelectorAll(`.${PREFIX}-w`)];
@@ -464,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
           (l) =>
             `<span class="${PREFIX}-mask" style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em">` +
             `<span class="${PREFIX}-inner" style="display:block;will-change:transform">${l.join(" ")}</span>` +
-            `</span>`
+            `</span>`,
         )
         .join("");
 
@@ -535,3 +563,179 @@ document.addEventListener("DOMContentLoaded", () => {
     init();
   }
 })();
+
+// Pool counter JS
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const counters = document.querySelectorAll(".pool-counter-item");
+
+  counters.forEach((counter) => {
+    const rawVal =
+      counter.getAttribute("data-value") || counter.textContent.trim();
+
+    const prefix = counter.getAttribute("data-prefix") || "";
+    const suffix = counter.getAttribute("data-suffix") || "";
+
+    const cleanVal = rawVal.replace(/[^\d.]/g, "");
+    const chars = cleanVal.split("");
+    const isSingleDigit = cleanVal.replace(".", "").length === 1;
+
+    counter.innerHTML = "";
+
+    if (prefix) {
+      const pSpan = document.createElement("span");
+      pSpan.innerHTML = prefix;
+      counter.appendChild(pSpan);
+    }
+
+    chars.forEach((char, index) => {
+      if (char === ".") {
+        const dot = document.createElement("span");
+        dot.textContent = ".";
+        counter.appendChild(dot);
+        return;
+      }
+
+      const col = document.createElement("span");
+      col.className = "pool-counter-digit-col";
+
+      const list = document.createElement("span");
+      list.className = "pool-counter-digit-list";
+
+      const finalNum = parseInt(char, 10);
+
+      // Standardize the roll: 0 through 9, ending with the specific finalNum
+      const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, finalNum];
+
+      numbers.forEach((num) => {
+        const numSpan = document.createElement("span");
+        numSpan.textContent = num;
+        list.appendChild(numSpan);
+      });
+
+      col.appendChild(list);
+      counter.appendChild(col);
+
+      // Ensure first digit (index 0) starts cleanly from top
+      let startY = 0;
+
+      if (index === 0) {
+        startY = 0;
+      } else if (!isSingleDigit && index % 2 !== 0) {
+        startY = 100;
+      } else {
+        startY = -100;
+      }
+
+      ScrollTrigger.create({
+        trigger: counter,
+        start: "top bottom",
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(
+            list,
+            {
+              yPercent: startY,
+            },
+            {
+              yPercent: -((numbers.length - 1) * (100 / numbers.length)),
+              duration: 2.8,
+              ease: "expo.out",
+              delay: index * 0.1,
+            },
+          );
+        },
+      });
+    });
+
+    if (suffix) {
+      const sSpan = document.createElement("span");
+      sSpan.innerHTML = suffix;
+      counter.appendChild(sSpan);
+    }
+  });
+});
+
+// Tree FAQ section
+document.addEventListener("DOMContentLoaded", function () {
+  const faqItems = document.querySelectorAll(".pool-faq-item");
+
+  faqItems.forEach(function (item) {
+    const trigger = item.querySelector(".pool-faq-trigger");
+    const content = item.querySelector(".pool-faq-content");
+    const icon = item.querySelector(".pool-icon-close img");
+
+    trigger.addEventListener("click", function () {
+      const isOpen = item.classList.contains("active");
+
+      // Close all FAQs
+      faqItems.forEach(function (faq) {
+        faq.classList.remove("active");
+
+        const faqContent = faq.querySelector(".pool-faq-content");
+        const faqIcon = faq.querySelector(".pool-icon-close img");
+
+        faqContent.style.maxHeight = "0px";
+
+        if (faqIcon) {
+          faqIcon.style.transform = "rotate(0deg)";
+        }
+      });
+
+      // Open clicked FAQ
+      if (!isOpen) {
+        item.classList.add("active");
+
+        content.style.maxHeight = content.scrollHeight + "px";
+
+        if (icon) {
+          icon.style.transform = "rotate(45deg)";
+        }
+      }
+    });
+  });
+});
+
+// pool Images comes from left to positon in viewport
+document.addEventListener("DOMContentLoaded", () => {
+  const targets = document.querySelectorAll(".pool-animated-image");
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target); // animate only once
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -60px 0px" },
+  );
+
+  targets.forEach((el) => observer.observe(el));
+});
+
+// Pool card items reveal js
+document.addEventListener("DOMContentLoaded", () => {
+  const targets = document.querySelectorAll(
+    ".pool-reveal-grid > *, .pool-reveal-item",
+  );
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      // Stagger items that enter the viewport at the same time
+      let i = 0;
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.setProperty("--delay", `${i * 0.2}s`);
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+        i++;
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+  );
+
+  targets.forEach((el) => observer.observe(el));
+});

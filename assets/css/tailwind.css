@@ -41,7 +41,7 @@
 }
 
 body {
-  background-color: #f7f8f6;
+  background-color: #ffffff;
   font-family: "Stack Sans Text", sans-serif;
 }
 
@@ -827,12 +827,127 @@ html.lenis body {
 }
 
 /* Pixxen Pool CSS start here */
-.pool-payment-upper-crd{
+.pool-payment-upper-crd {
   border-radius: 20px;
   corner-bottom-left-shape: scoop;
   corner-bottom-right-shape: scoop;
 }
-.pool-payment-lower-crd{
+.pool-payment-lower-crd {
   border-radius: 20px;
   corner-shape: scoop;
+}
+
+/* counter  */
+.pool-counter-item {
+  display: inline-flex;
+  overflow: hidden;
+  align-items: baseline;
+}
+
+.pool-counter-digit-col {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  vertical-align: bottom;
+}
+
+.pool-counter-digit-list {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.pool-counter-digit-list span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+}
+
+/* Faq */
+.pool-faq-content {
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.pool-faq-content p {
+  margin: 0;
+}
+
+.pool-icon-close img {
+  transition: transform 0.3s ease;
+}
+
+/* For POOL contents animation */
+.pool-animated-image {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition:
+    opacity 1.2s ease-out,
+    transform 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.pool-animated-image.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Respect users who disable motion */
+@media (prefers-reduced-motion: reduce) {
+  .pool-animated-image {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/*  */
+.pool-reveal-grid > *,
+.pool-reveal-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1.2s ease-out,
+    transform 1.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.pool-reveal-grid > *.is-visible,
+.pool-reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pool-reveal-grid > *,
+  .pool-reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.pool-timeline-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1.4s ease-out,
+    transform 1.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.pool-timeline-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pool-timeline-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
